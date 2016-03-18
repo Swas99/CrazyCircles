@@ -123,6 +123,39 @@ public class Game_Services
             Games.Leaderboards.submitScore(mGoogleApiClient,leader_board_id,score);
             editor.putBoolean(String.valueOf(Helper.TOP_SCORE_UPDATE_REQUIRED), false);
             Helper.writeToFile(m_context, Helper.UPDATE_FILE,"0");
+
+            if(score>5)
+            {
+                Games.Achievements.unlock(mGoogleApiClient,
+                        mContext.getString(R.string.achievement_pfftt_noob__bdb));
+            }
+
+            if(score>10)
+            {
+                Games.Achievements.unlock(mGoogleApiClient,
+                        mContext.getString(R.string.achievement_at_least_you_are_trying__bdb));
+            }
+            if(score<=5)
+            {
+                Games.Achievements.unlock(mGoogleApiClient,
+                        mContext.getString(R.string.achievement_you_can_do_better__bdb));
+            }
+
+            if(score>=50)
+            {
+                Games.Achievements.unlock(mGoogleApiClient,
+                        mContext.getString(R.string.achievement_getting_used_to_things__bdb));
+            }
+            if(score>=120)
+            {
+                Games.Achievements.unlock(mGoogleApiClient,
+                        mContext.getString(R.string.achievement_you_are_becoming_a_pro__bdb));
+            }
+            if(score>=200)
+            {
+                Games.Achievements.unlock(mGoogleApiClient,
+                        mContext.getString(R.string.achievement_you_are_becoming_a_pro__bdb));
+            }
         }
         else
         {
@@ -133,6 +166,7 @@ public class Game_Services
         }
 
         editor.apply();
+
     }
 
     public void onSignInButtonClicked() {

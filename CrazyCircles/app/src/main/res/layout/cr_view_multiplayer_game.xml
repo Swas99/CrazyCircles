@@ -119,7 +119,7 @@
         android:orientation="vertical"
         android:layout_centerInParent="true"
         android:visibility="invisible"
-        android:background="@drawable/circle_white_border">
+        android:background="@drawable/background_white_09_circle">
         <TextView
             android:id="@+id/tvP2Result"
             android:rotation="180"
@@ -129,7 +129,7 @@
             android:layout_weight="1"
             android:textSize="45sp"
             android:textColor="#FFFFFF"
-            android:gravity="center_horizontal|bottom"/>
+            android:gravity="center_horizontal|top"/>
         <View
             android:layout_width="match_parent"
             android:layout_height="1dp"

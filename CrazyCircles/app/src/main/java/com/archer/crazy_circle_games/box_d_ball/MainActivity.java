@@ -33,8 +33,7 @@ public class MainActivity
     private SensorManager mSensorManager;
     private Sensor mSensor;
     public MainActivity mContext;
-    Game_Services objGameServices;
-
+    public Game_Services objGameServices;
 
     TextView tvScore;
     Box objBox;
@@ -287,7 +286,7 @@ public class MainActivity
                                     break;
                                 case R.id.btn_top_scores:
                                 case R.id.btn_top_scores_2:
-                                    objGameServices.onShowLeaderBoardRequested(getString(R.string.leaderboard_top_score));
+                                    objGameServices.onShowLeaderBoardRequested(getString(R.string.leaderboard_top_score__bdb));
                                     break;
 
                             }
@@ -755,7 +754,7 @@ public class MainActivity
         else
             ((TextView)findViewById(R.id.tvBestScore)).setText(String.valueOf(best_score));
 
-        objGameServices.submitScore(getString(R.string.leaderboard_top_score), Score);
+        objGameServices.submitScore(getString(R.string.leaderboard_top_score__bdb), Score);
     }
 
     public void onBackPress()

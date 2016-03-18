@@ -8,18 +8,19 @@
     android:gravity="center">
 
     <ImageView
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+        android:layout_width="90dp"
+        android:layout_height="90dp"
         android:id="@+id/ivCard"
         android:contentDescription="@string/card" />
     <TextView
+        android:layout_marginTop="6dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textColor="#000000"
         android:gravity="center"
         android:id="@+id/tvGameName"/>
     <View
-        android:layout_width="match_parent"
+        android:layout_width="100dp"
         android:layout_height="1dp"
         android:background="@drawable/background_black_circle"
         />

@@ -6,6 +6,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.archer.crazy_circle_games.R;
+import com.archer.crazy_circle_games.circle_run.game_logic.path_logic.MathHelper;
 
 /**
  * Created by Swastik on 28-12-2015
@@ -115,18 +116,8 @@ public class HowToPlay
                 if(y_vel>mContext.objBall.force_limit*100)
                     y_vel=mContext.objBall.force_limit*100;
 
-                tv_x_velocity.setText(String.valueOf(Math.abs(x_vel / 100f)));
-                tv_y_velocity.setText(String.valueOf(Math.abs(y_vel/100f)));
-
-                if(x_vel<0)
-                    tv_x_direction.setText("→");
-                else
-                    tv_x_direction.setText("←");
-
-                if(y_vel<0)
-                    tv_y_direction.setText("↑");
-                else
-                    tv_y_direction.setText("↓");
+                setForceValue(x_vel, y_vel);
+                setDirectionText(x_vel, y_vel);
             }
 
             @Override
@@ -134,6 +125,29 @@ public class HowToPlay
 
             }
         }.start();
+    }
+
+    private void setDirectionText(float x_vel,float y_vel)
+    {
+        if(x_vel<0)
+            tv_x_direction.setText("→");
+        else
+            tv_x_direction.setText("←");
+
+        if(y_vel<0)
+            tv_y_direction.setText("↑");
+        else
+            tv_y_direction.setText("↓");
+    }
+    private void setForceValue(float x_vel,float y_vel)
+    {
+        if(Math.abs(x_vel)>270)
+            x_vel = 270;
+        if(Math.abs(y_vel)>270)
+            y_vel = 270;
+
+        tv_x_velocity.setText( String.valueOf(Math.abs(x_vel/100)));
+        tv_y_velocity.setText( String.valueOf(Math.abs(y_vel/100)));
     }
 
     private void initialize_help_animation_updater() {

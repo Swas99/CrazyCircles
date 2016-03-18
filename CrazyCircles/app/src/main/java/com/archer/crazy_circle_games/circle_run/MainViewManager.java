@@ -398,6 +398,7 @@ public class MainViewManager {
                         break;
                     case R.id.btn_start:
                     {
+                        ScaleUP_ThenRevert(v);
                         TextView tvScoreLimit = (TextView)mContext.findViewById(R.id.tvScoreLimit);
                         multiPlayerScoreLimit = Integer.valueOf(String.valueOf(tvScoreLimit.getText()));
                         multiPlayerGame = true;
@@ -500,6 +501,10 @@ public class MainViewManager {
 
 
     private void load_selection_screen(final boolean slideRight) {
+        if(isLoadingView)
+            return;
+        isLoadingView=true;
+
         new CountDownTimer(420,420)
         {
 
@@ -510,9 +515,6 @@ public class MainViewManager {
 
             @Override
             public void onFinish() {
-                if(isLoadingView)
-                    return;
-
                 View view_to_load;
                 LayoutInflater inflater = mContext.getLayoutInflater();
 

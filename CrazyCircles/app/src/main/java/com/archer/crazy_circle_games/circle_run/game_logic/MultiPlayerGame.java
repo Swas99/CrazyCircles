@@ -1,15 +1,10 @@
 package com.archer.crazy_circle_games.circle_run.game_logic;
 
-import android.app.AlertDialog;
-import android.app.Dialog;
 import android.os.CountDownTimer;
 import android.os.Handler;
-import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -27,7 +22,6 @@ import com.archer.crazy_circle_games.circle_run.game_logic.path_logic.EllipseEvo
 import com.archer.crazy_circle_games.circle_run.game_logic.path_logic.Lemniscate;
 
 import java.lang.ref.WeakReference;
-import java.util.Scanner;
 
 /**
  * Created by Swastik on 17-03-2016.
@@ -228,9 +222,9 @@ public class MultiPlayerGame
         P1_Score = 0;
         P2_Score = 0;
         game_time =0;
-        increment_score(0,0);
+        increment_score(0, 0);
         mainContainer.findViewById(R.id.region_you_win).setVisibility(View.INVISIBLE);
-        mainContainer.findViewById(R.id.circle_path).setVisibility(View.VISIBLE);
+        setGameObjectVisibility(View.VISIBLE);
     }
 
     boolean firstRun = true;
@@ -343,7 +337,7 @@ public class MultiPlayerGame
         isP1_Alive = false;
         isP2_Alive = false;
         objDeathPath.setAlpha(0);
-        mainContainer.findViewById(R.id.circle_path).setVisibility(View.INVISIBLE);
+        setGameObjectVisibility(View.INVISIBLE);
 
         mContext.objMainViewManager.reloadBackground();
         if(mContext.vibration_on)
@@ -351,10 +345,17 @@ public class MultiPlayerGame
 
         mHandler.removeCallbacks(game_driver);
         mContext.objSoundManager.Play(mContext.objSoundManager.YAY);
-        showEndGamePopUp();
+        showEndGameUI();
     }
 
-    private void showEndGamePopUp() {
+    public void setGameObjectVisibility(int visibility) {
+        mainContainer.findViewById(R.id.circle_path).setVisibility(visibility);
+        mainContainer.findViewById(R.id.P1_circle).setVisibility(visibility);
+        mainContainer.findViewById(R.id.P2_circle).setVisibility(visibility);
+        mainContainer.findViewById(R.id.img_flag).setVisibility(visibility);
+    }
+
+    private void showEndGameUI() {
 
         String you_lose = "You\nLose";
         String you_win = "You\nWin!";
@@ -384,7 +385,7 @@ public class MultiPlayerGame
             P1_Score+=p1;
         if(P1_Score<ScoreToReach)
             P2_Score+=p2;
-        if(P1_Score+P2_Score==ScoreToReach)
+        if(P1_Score>ScoreToReach || P2_Score > ScoreToReach)
             return;
 
         tv_P1_Score.setText(String.valueOf(P1_Score));

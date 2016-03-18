@@ -125,7 +125,7 @@ public class Game_Services
             case Helper.DELTOID:
                 return mContext.getString(R.string.leaderboard_deltoid);
             default:
-                return mContext.getString(R.string.leaderboard_top_score);
+                return mContext.getString(R.string.leaderboard_top_score__circle_run);
         }
     }
 
@@ -190,7 +190,7 @@ public class Game_Services
             return;
 
 
-        submitScore(mContext.getString(R.string.leaderboard_top_score), Score);
+        submitScore(mContext.getString(R.string.leaderboard_top_score__circle_run), Score);
         switch (path_type) {
             case Helper.BICORN:
                 submitScore(mContext.getString(R.string.leaderboard_bicorn), Score);
@@ -218,44 +218,44 @@ public class Game_Services
                 break;
         }
 
-        submitScore(mContext.getString(R.string.leaderboard_top_score), Score);
+        submitScore(mContext.getString(R.string.leaderboard_top_score__circle_run), Score);
 
         if(mContext.TotalGames>20)
         {
             Games.Achievements.increment(mGoogleApiClient,
-                    mContext.getString(R.string.achievement_the_fun_has_just_started),1);
+                    mContext.getString(R.string.achievement_the_fun_has_just_started__cr),1);
         }
 
         if(mContext.TotalGames>50) {
             Games.Achievements.increment(mGoogleApiClient,
-                    mContext.getString(R.string.achievement_somebody_is_getting_addicted),1);
+                    mContext.getString(R.string.achievement_somebody_is_getting_addicted__cr),1);
         }
 
         if(mContext.BestScore>5) {
             Games.Achievements.unlock(mGoogleApiClient,
-                    mContext.getString(R.string.achievement_pfftt_noob));
+                    mContext.getString(R.string.achievement_pfftt_noob__cr));
         }
 
         if(mContext.BestScore>10) {
             Games.Achievements.unlock(mGoogleApiClient,
-                    mContext.getString(R.string.achievement_at_least_you_are_trying));
+                    mContext.getString(R.string.achievement_at_least_you_are_trying__cr));
         }
         if(mContext.BestScore<=2) {
             Games.Achievements.unlock(mGoogleApiClient,
-                    mContext.getString(R.string.achievement_you_can_do_better));
+                    mContext.getString(R.string.achievement_you_can_do_better__cr));
         }
 
         if(mContext.BestScore>=20) {
             Games.Achievements.unlock(mGoogleApiClient,
-                    mContext.getString(R.string.achievement_getting_used_to_things));
+                    mContext.getString(R.string.achievement_getting_used_to_things__cr));
         }
         if(mContext.BestScore>35) {
             Games.Achievements.unlock(mGoogleApiClient,
-                    mContext.getString(R.string.achievement_you_are_becoming_a_pro));
+                    mContext.getString(R.string.achievement_you_are_becoming_a_pro__cr));
         }
         if(mContext.BestScore>=50) {
             Games.Achievements.unlock(mGoogleApiClient,
-                    mContext.getString(R.string.achievement_you_are_becoming_a_pro));
+                    mContext.getString(R.string.achievement_nailed_it__cr));
         }
     }
 

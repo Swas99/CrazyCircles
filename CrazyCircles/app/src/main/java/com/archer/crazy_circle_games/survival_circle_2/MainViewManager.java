@@ -206,7 +206,7 @@ public class MainViewManager {
                     case R.id.btn_leader_board:
                         mContext.objSoundManager.Play(mContext.objSoundManager.CLICK);
                         ScaleUP_ThenRevert(mContext.findViewById(R.id.img_leader_board));
-                        mContext.objGameServices.onShowLeaderBoardRequested(mContext.getString(R.string.leaderboard_top_score));
+                        mContext.objGameServices.onShowLeaderBoardRequested(mContext.getString(R.string.leaderboard_top_score__sc_2));
                         break;
                     case R.id.btn_settings:
                         mContext.objSoundManager.Play(mContext.objSoundManager.CLICK);
@@ -264,7 +264,7 @@ public class MainViewManager {
                     case R.id.img_top_score_single_player_game:
                         mContext.objSoundManager.Play(mContext.objSoundManager.CLICK);
                         ScaleUP_ThenRevert(v);
-                        mContext.objGameServices.onShowLeaderBoardRequested(mContext.getString(R.string.leaderboard_top_score));
+                        mContext.objGameServices.onShowLeaderBoardRequested(mContext.getString(R.string.leaderboard_top_score__sc_2));
                         break;
                 }
             }

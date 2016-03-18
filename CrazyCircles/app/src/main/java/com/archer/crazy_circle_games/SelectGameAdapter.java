@@ -54,4 +54,6 @@ public class SelectGameAdapter extends BaseAdapter {
         }
         return convertView;
     }
+
+
 }

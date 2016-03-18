@@ -9,45 +9,80 @@
     tools:context="com.archer.crazy_circle_games.Home">
 
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:paddingTop="20dp"
-        android:paddingBottom="20dp"
-        >
-        <TextView
+        android:layout_height="0dp"
+        android:layout_weight="3">
+        <View
+            android:id="@+id/ball_1"
+            android:layout_width="27dp"
+            android:layout_height="27dp"
+            android:background="@drawable/background_maroon_circle"
+            />
+        <View
+            android:id="@+id/ball_2"
+            android:layout_width="27dp"
+            android:layout_height="27dp"
+            android:background="@drawable/background_black_blue_circle"
+            />
+        <View
+            android:id="@+id/ball_3"
+            android:layout_width="27dp"
+            android:layout_height="27dp"
+            android:background="@drawable/background_yellow_circle"
+            />
+        <View
+            android:id="@+id/ball_4"
+            android:layout_width="27dp"
+            android:layout_height="27dp"
+            android:background="@drawable/background_black_blue_circle"
+            />
+        <View
+            android:id="@+id/ball_5"
+            android:layout_width="27dp"
+            android:layout_height="27dp"
+            android:background="@drawable/solid_black_circle"
+            />
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
-            android:gravity="center"
-            android:textColor="#FFFFFF"
-            android:textSize="45sp"
-            android:text="CraZy"
-            android:textStyle="bold"
-            android:typeface="sans"
-            android:id="@+id/tvTitle1"
-            />
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="2dp"
-            android:background="@drawable/background_white_circle"
-            android:id="@+id/divider"
-            />
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center"
-            android:textColor="#FFFFFF"
-            android:textSize="45sp"
-            android:text="CiRcLes"
-            android:id="@+id/tvTitle2"
-            />
-    </LinearLayout>
+            android:orientation="vertical"
+            android:paddingTop="20dp"
+            android:paddingBottom="20dp"
+            >
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:gravity="center"
+                android:textColor="#FFFFFF"
+                android:textSize="45sp"
+                android:text="CraZy"
+                android:textStyle="bold"
+                android:typeface="sans"
+                android:id="@+id/tvTitle1"
+                />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="2dp"
+                android:background="@drawable/background_white_circle"
+                android:id="@+id/divider"
+                />
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="#FFFFFF"
+                android:textSize="45sp"
+                android:text="CiRcLes"
+                android:id="@+id/tvTitle2"
+                />
+        </LinearLayout>
+    </RelativeLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_weight="7"
         android:orientation="vertical"
         android:baselineAligned="false"
         android:background="#01000000">
@@ -69,15 +104,14 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:paddingTop="18dp"
-
             android:numColumns="2"
             android:columnWidth="90dp"
             android:stretchMode="columnWidth"
             android:verticalSpacing="30dp"
             android:horizontalSpacing="10dp"
             android:gravity="center"
-            android:background="#18000000">
-        </GridView>
+            />
+
 
     </LinearLayout>
 
