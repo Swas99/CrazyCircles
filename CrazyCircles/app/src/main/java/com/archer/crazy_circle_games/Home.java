@@ -9,6 +9,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
+import android.widget.ListView;
 
 import com.archer.crazy_circle_games.box_d_ball.Helper;
 
@@ -34,13 +35,13 @@ public class Home extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_home);
 
-        final GridView gridview = (GridView) findViewById(R.id.gdCards);
+        final ListView gridview = (ListView) findViewById(R.id.gdCards);
         final SelectGameAdapter adapter = new SelectGameAdapter(getApplicationContext());
         gridview.setAdapter(adapter);
         gridview.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, final int position, long id) {
-                ScaleUP_ThenRevert(view);
+                ScaleUP_ThenRevert(view.findViewById(R.id.ivCard));
                 new CountDownTimer(420, 420) {
                     @Override
                     public void onTick(long millisUntilFinished) {
@@ -199,8 +200,9 @@ public class Home extends AppCompatActivity {
         mBall_4 = findViewById(R.id.ball_4);
         mBall_5 = findViewById(R.id.ball_5);
 
+
         ScreenSize = Helper.getWindowSize(getWindowManager().getDefaultDisplay());
-        AvailableHeight = 3*ScreenSize.y/10 - Helper.ConvertToPx(getApplicationContext(),27);
+        AvailableHeight = (int)(2.52f*ScreenSize.y/10 - Helper.ConvertToPx(getApplicationContext(),27));
         AvailableWidth = ScreenSize.x - Helper.ConvertToPx(getApplicationContext(),27);
     }
 

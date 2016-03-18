@@ -4,7 +4,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/background_blue_1"
+    android:background="@drawable/background_blue_2"
     android:id="@+id/activity_home"
     tools:context="com.archer.crazy_circle_games.Home">
 
@@ -12,7 +12,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="3">
+        android:layout_weight="2.52">
         <View
             android:id="@+id/ball_1"
             android:layout_width="27dp"
@@ -59,7 +59,7 @@
                 android:textSize="45sp"
                 android:text="CraZy"
                 android:textStyle="bold"
-                android:typeface="sans"
+                android:typeface="serif"
                 android:id="@+id/tvTitle1"
                 />
             <RelativeLayout
@@ -75,6 +75,7 @@
                 android:textColor="#FFFFFF"
                 android:textSize="45sp"
                 android:text="CiRcLes"
+                android:typeface="monospace"
                 android:id="@+id/tvTitle2"
                 />
         </LinearLayout>
@@ -85,30 +86,26 @@
         android:layout_weight="7"
         android:orientation="vertical"
         android:baselineAligned="false"
-        android:background="#01000000">
+        android:layout_marginRight="5dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:background="@drawable/border_white">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="12dp"
             android:gravity="center"
             android:textColor="#FFFFFF"
-            android:textSize="30sp"
-            android:typeface="monospace"
-            android:text="@string/select_game_header"
-            android:id="@+id/tvTitle3"
-            />
-
-
-        <GridView
+            android:textSize="27sp"
+            android:text="@string/select_game_"/>
+        <ListView
             android:id="@+id/gdCards"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingTop="18dp"
-            android:numColumns="2"
-            android:columnWidth="90dp"
-            android:stretchMode="columnWidth"
-            android:verticalSpacing="30dp"
-            android:horizontalSpacing="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginStart="10dp"
             android:gravity="center"
             />
 
