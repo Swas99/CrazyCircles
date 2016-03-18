@@ -6,10 +6,12 @@ import android.os.CountDownTimer;
 import android.os.Handler;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.KeyEvent;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.GridView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.archer.crazy_circle_games.box_d_ball.Helper;
 
@@ -259,8 +261,43 @@ public class Home extends AppCompatActivity {
                 startActivity(survival_circle_2);
                 break;
         }
-
-        finish();
     }
 
+    boolean backPressFlag;
+    public void setBackPressFlag()
+    {
+        try {
+            backPressFlag = true;
+            Toast.makeText(getApplicationContext(), "Tap again to exit", Toast.LENGTH_SHORT).show();
+            new CountDownTimer(2700, 2700) {
+                @Override
+                public void onTick(long millisUntilFinished) {
+                }
+
+                @Override
+                public void onFinish() {
+                    backPressFlag = false;
+                }
+            }.start();
+        }
+        catch (Exception ex){
+            //Toast.makeText(mContext,ex.getMessage(),Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+
+        if ((keyCode == KeyEvent.KEYCODE_BACK))
+        {
+            if(!backPressFlag)
+                setBackPressFlag();
+            else
+                finish();
+        }
+        else
+            super.onKeyDown(keyCode, event);
+
+        return false;
+    }
 }

@@ -1,6 +1,7 @@
 package com.archer.crazy_circle_games.circle_run;
 
 import android.animation.Animator;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Point;
 import android.os.CountDownTimer;
@@ -13,6 +14,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 
+import com.archer.crazy_circle_games.Home;
 import com.archer.crazy_circle_games.R;
 import com.archer.crazy_circle_games.circle_run.game_logic.MultiPlayerGame;
 import com.archer.crazy_circle_games.circle_run.game_logic.SinglePlayerGame;
@@ -880,7 +882,9 @@ public class MainViewManager {
                 if(!backPressFlag)
                     setBackPressFlag();
                 else
+                {
                     mContext.finish();
+                }
                 break;
             case R.id.settings_screen:
                 break;

@@ -757,6 +757,30 @@ public class MainActivity
         objGameServices.submitScore(getString(R.string.leaderboard_top_score__bdb), Score);
     }
 
+
+
+
+    boolean backPressFlag;
+    public void setBackPressFlag()
+    {
+        try {
+            backPressFlag = true;
+            Toast.makeText(getApplicationContext(), "Tap again to exit", Toast.LENGTH_SHORT).show();
+            new CountDownTimer(2700, 2700) {
+                @Override
+                public void onTick(long millisUntilFinished) {
+                }
+
+                @Override
+                public void onFinish() {
+                    backPressFlag = false;
+                }
+            }.start();
+        }
+        catch (Exception ex){
+            //Toast.makeText(mContext,ex.getMessage(),Toast.LENGTH_SHORT).show();
+        }
+    }
     public void onBackPress()
     {
         switch (CURRENT_SCREEN)
@@ -778,8 +802,13 @@ public class MainActivity
                 load_view_to_main_container(R.layout.bdb_view_home);
                 break;
             case R.layout.bdb_view_home:
-                unregister_sensor_changed_listener();
-                finish();
+                if(!backPressFlag)
+                    setBackPressFlag();
+                else
+                {
+                    unregister_sensor_changed_listener();
+                    finish();
+                }
                 break;
         }
     }
